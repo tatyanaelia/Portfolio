@@ -3,14 +3,14 @@ import { Project, Skill } from './types';
 export const PROJECTS: Project[] = [
   {
     id: 'habilita-plus',
-    title: 'Habilita+',
-    tagline: 'Fundadora & PM | Marketplace de Serviços Educacionais',
-    context: 'Com as atualizações na regulamentação da CNH no Brasil, candidatos enfrentavam insegurança para encontrar instrutores licenciados com transparência. O processo tornava-se fonte de ansiedade, especialmente para quem tem medo de dirigir ou dificuldades específicas.',
-    hypothesis: 'Uma plataforma centralizada, conectada a dados oficiais e estruturada como marketplace, permitiria unir candidatos e instrutores credenciados de forma segura e transparente, reduzindo fricção e aumentando a confiança.',
-    analysis: 'Levantamento da nova regulamentação da CNH e análise de comportamento em plataformas informais. Identifiquei ausência de validação oficial, falta de critérios de comparação e forte componente emocional na decisão. A dor era psicológica e reputacional.',
-    decision: 'Estruturei como um e-commerce de serviços com integração via API para validação de licenciamento, sistema de avaliações e tags de especialização. Priorizei segurança regulatória, transparência e experiência centrada na dor do usuário.',
-    impact: 'Estruturação completa do modelo de marketplace com lógica de validação regulatória, reduzindo a incerteza em testes conceituais e aumentando em 70% a intenção de contratação comparado à busca informal.',
-    tags: ['Marketplace', 'Product Management', 'RegTech', 'UX Strategy']
+    title: 'Stone',
+    tagline: 'Analista de planejamento',
+    context: 'Uma nova área em growth de geração de demanda precisa estruturar a padronização de como capta os dados até uma mensuração que balize diferentes produtos para avaliar performance e retorno.',
+    hypothesis: 'Se a classificação da origem for resolvida na captação, e não reconstruída depois, é possível sustentar dois eixos de leitura: uma fonte exclusiva, que fecha no total, e potencializadores sobrepostos, que mostram o que ajudou a converter. Com a origem estável, produtos de ciclos distintos passam a ser comparáveis sob a mesma régua.',
+    analysis: 'Mapeei o fluxo ponta a ponta antes de desenhar o modelo. A maior parte das capturas não trazia parâmetro de origem, a marca declarada na campanha divergia do que o funil registrava, e a contagem estava no grão do formulário, não da pessoa. As fontes também se cruzavam na prática: um creator impulsionado não é mídia paga. O problema não era de ferramenta, era de definição.',
+    decision: 'Estruturei uma matriz de fonte e potencializador com parametrização na origem, via gerador de links. A fonte é resolvida por uma cascata de níveis que grava em cada linha o modo e o grau de confiança, o dado informa o quanto ele mesmo é confiável. Travas de unicidade garantem que receita e conta sejam contadas uma vez por identidade, e as regras legadas ficam restritas à correção do histórico. Priorizei pipeline auditável.',
+    impact: 'Transparência inédita sobre a origem real de cada lead por canal e fonte, hoje usada para decidir alocação de esforço e investimento. A leitura por potencializador expôs diferenças de ordem de grandeza entre iniciativas antes tratadas como equivalentes, e a quebra por produto revelou perfis de aquisição distintos, um de volume, outro de ticket, que o indicador agregado escondia.',
+    tags: ['Arquitetura de Dados', 'Atribuição & MarTech', 'Business Intelligence', 'Growth', 'Product Thinking']
   },
   {
     id: 'banco-dados-autoras',
