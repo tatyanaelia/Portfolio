@@ -4,26 +4,26 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Database, 
-  BarChart3, 
-  Code2, 
-  Search, 
-  Brain, 
-  ArrowRight, 
-  Github, 
-  Linkedin, 
-  Mail, 
+import { motion } from 'motion/react';
+import {
+  Database,
+  BarChart3,
+  Code2,
+  Search,
+  Brain,
+  ArrowRight,
+  Github,
+  Linkedin,
+  Mail,
   FileText,
   ChevronDown,
-  ExternalLink,
   Target,
   Zap,
   Layers,
   TrendingUp
 } from 'lucide-react';
 import { PROJECTS, SKILLS } from './constants';
+import DashboardShowcase from './components/DashboardShowcase';
 
 const SectionTitle = ({ children, subtitle }: { children: React.ReactNode; subtitle?: string }) => (
   <div className="mb-12">
@@ -83,19 +83,19 @@ export default function App() {
               Transformo comportamento humano e dados em decisões de produto. Especialista em percepção, análise e construção de soluções centradas no usuário.
             </p>
             <div className="flex flex-wrap gap-4">
-              <button 
+              <button
                 onClick={() => scrollTo('projetos')}
                 className="px-8 py-4 bg-zinc-900 text-white font-bold rounded-none hover:bg-zinc-800 transition-all flex items-center gap-2 group no-print"
               >
                 Ver Projetos <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button 
+              <button
                 onClick={() => scrollTo('contato')}
                 className="px-8 py-4 border-2 border-zinc-900 text-zinc-900 font-bold rounded-none hover:bg-zinc-900 hover:text-white transition-all no-print"
               >
                 Falar Comigo
               </button>
-              <button 
+              <button
                 type="button"
                 onClick={() => window.print()}
                 className="px-8 py-4 text-zinc-500 font-bold hover:text-zinc-900 transition-all flex items-center gap-2 cursor-pointer no-print relative z-20"
@@ -105,8 +105,8 @@ export default function App() {
             </div>
           </motion.div>
         </div>
-        
-        <motion.div 
+
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1, duration: 1 }}
@@ -124,7 +124,7 @@ export default function App() {
       {/* About Section (Product Lens) */}
       <section id="sobre" className="py-24 bg-white px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-columns-2 gap-16 items-start">
+          <div className="grid md:grid-cols-2 gap-16 items-start">
             <div>
               <SectionTitle subtitle="Como eu penso e resolvo problemas de produto.">
                 Lógica de Produto
@@ -148,7 +148,7 @@ export default function App() {
                 { title: 'Design', desc: 'Experiência do usuário centrada na simplicidade.', icon: Layers },
                 { title: 'Tecnologia', desc: 'Visão técnica para garantir viabilidade e escala.', icon: Code2 },
               ].map((item, i) => (
-                <motion.div 
+                <motion.div
                   key={i}
                   whileHover={{ y: -5 }}
                   className="p-6 border border-zinc-100 bg-zinc-50/50"
@@ -169,10 +169,10 @@ export default function App() {
           <SectionTitle subtitle="Cases reais onde raciocínio estratégico e execução técnica se encontram.">
             Projetos & Impacto
           </SectionTitle>
-          
+
           <div className="space-y-20">
-            {PROJECTS.map((project, index) => (
-              <motion.div 
+            {PROJECTS.map((project) => (
+              <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -182,7 +182,7 @@ export default function App() {
                 <div className="grid md:grid-cols-12 gap-8 items-start">
                   <div className="md:col-span-4">
                     <div className="sticky top-32">
-                      <div className="flex gap-2 mb-4">
+                      <div className="flex flex-wrap gap-2 mb-4">
                         {project.tags.map(tag => (
                           <span key={tag} className="text-[10px] font-bold uppercase tracking-wider px-2 py-1 bg-zinc-200 text-zinc-700">
                             {tag}
@@ -193,7 +193,7 @@ export default function App() {
                       <p className="text-zinc-500 font-medium italic mb-6">{project.tagline}</p>
                     </div>
                   </div>
-                  
+
                   <div className="md:col-span-8 bg-white p-8 md:p-12 shadow-sm border border-zinc-100">
                     <div className="grid sm:grid-cols-2 gap-10">
                       <div className="space-y-6">
@@ -233,6 +233,9 @@ export default function App() {
                     </div>
                   </div>
                 </div>
+
+                {/* Painel entregue — renderiza só nos projetos que têm dashboard */}
+                <DashboardShowcase projectId={project.id} />
               </motion.div>
             ))}
           </div>
@@ -288,7 +291,7 @@ export default function App() {
             </div>
           </div>
         </div>
-        
+
         {/* Background Decor */}
         <div className="absolute top-0 right-0 w-1/2 h-full bg-zinc-800/20 skew-x-12 translate-x-1/4 -z-0" />
       </section>
@@ -299,7 +302,7 @@ export default function App() {
           <SectionTitle subtitle="Ferramentas traduzidas em impacto estratégico.">
             Stack Técnica & Estratégica
           </SectionTitle>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8">
             {SKILLS.map((skill, i) => {
               const Icon = { Database, BarChart3, Code2, Search, Brain }[skill.icon] || Code2;
@@ -322,9 +325,9 @@ export default function App() {
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter mb-8">Vamos construir o próximo grande produto?</h2>
           <p className="text-xl text-zinc-600 mb-12">
-            Estou sempre aberto a conversas sobre estratégia de produto, análise de dados e comportamento humano.
+            Estou sempre aberta a conversas sobre estratégia de produto, análise de dados e comportamento humano.
           </p>
-          
+
           <div className="flex flex-wrap justify-center gap-8 mb-16">
             <a href="mailto:eliatatyana@gmail.com" className="flex items-center gap-3 text-lg font-bold hover:text-zinc-500 transition-colors">
               <Mail className="w-6 h-6" /> eliatatyana@gmail.com
