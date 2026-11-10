@@ -23,7 +23,6 @@ import {
   TrendingUp
 } from 'lucide-react';
 import { PROJECTS, SKILLS } from './constants';
-import DashboardShowcase from './components/DashboardShowcase';
 
 const SectionTitle = ({ children, subtitle }: { children: React.ReactNode; subtitle?: string }) => (
   <div className="mb-12">
@@ -234,8 +233,6 @@ export default function App() {
                   </div>
                 </div>
 
-                {/* Painel entregue — renderiza só nos projetos que têm dashboard */}
-                <DashboardShowcase projectId={project.id} />
               </motion.div>
             ))}
           </div>
